@@ -34,10 +34,19 @@
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;background:var(--bg);color:var(--fg)}
 body{font-family:var(--font-body);font-size:15px;line-height:1.45;
-  padding:calc(env(safe-area-inset-top,0px) + 14px) calc(env(safe-area-inset-right,0px) + 14px)
-          calc(env(safe-area-inset-bottom,0px) + 18px) calc(env(safe-area-inset-left,0px) + 14px);
+  padding:calc(env(safe-area-inset-top,0px) + 8px) calc(env(safe-area-inset-right,0px) + 12px)
+          calc(env(safe-area-inset-bottom,0px) + 12px) calc(env(safe-area-inset-left,0px) + 12px);
   min-height:100vh;-webkit-text-size-adjust:100%}
-header{display:flex;align-items:center;gap:12px;margin:2px 2px 14px}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 2px 8px}
+header .lg{display:flex;align-items:center;gap:6px}
+header .logo{height:50px;width:auto;display:block;border:0;border-radius:0}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--panel);font-family:var(--font-mono);font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+.pill i{width:7px;height:7px;border-radius:50%;background:#3DDC84;box-shadow:0 0 6px #3DDC84}
+body.offline .pill i{background:#FFD166;box-shadow:0 0 6px #FFD166}
+.qnav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:0 0 10px}
+.qnav a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 2px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--fg);text-decoration:none;font-size:12px;font-weight:600;text-align:center;line-height:1.15}
+.qnav a span{font-size:16px;line-height:1}
+.qnav a:active{border-color:var(--orange);background:var(--panel-2)}
 header img{width:44px;height:44px;border-radius:11px;border:1px solid var(--red)}
 header h1{margin:0;font-family:var(--font-display);font-weight:700;font-size:25px;letter-spacing:.4px;line-height:1.1}
 header .sub{font-family:var(--font-mono);font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--orange)}
@@ -46,11 +55,11 @@ header .sub{font-family:var(--font-mono);font-size:11px;letter-spacing:1.6px;tex
 .home .b{width:30px;height:30px;border-radius:8px;background:var(--orange);color:var(--on-orange);display:grid;place-items:center;font-weight:700}
 .home b{font-family:var(--font-display);font-size:17px}
 .home small{margin-left:auto;font-family:var(--font-mono);font-size:10.5px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
-.label{font-family:var(--font-mono);font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin:0 4px 10px;display:flex;justify-content:space-between}
+.label{font-family:var(--font-mono);font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin:0 4px 7px;display:flex;justify-content:space-between}
 .label span:last-child{color:var(--cyan);letter-spacing:.6px;text-transform:none}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
 @media (min-width:560px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.tile{position:relative;display:flex;align-items:center;gap:10px;min-height:68px;padding:12px 10px 12px 11px;
+.tile{position:relative;display:flex;align-items:center;gap:10px;min-height:60px;padding:9px 9px 9px 10px;
   background:var(--panel);border:1px solid var(--line);border-radius:14px;color:var(--fg);text-decoration:none}
 .tile:active{background:var(--panel-2);border-color:var(--orange);transform:scale(.985)}
 .badge{flex:none;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
@@ -66,9 +75,9 @@ header .sub{font-family:var(--font-mono);font-size:11px;letter-spacing:1.6px;tex
 .txt{flex:1}
 .grid>li{display:flex}
 .grid .tile{flex:1}
-.hint{margin:16px 4px 0;font-size:12.5px;color:var(--muted)}
+.hint{margin:10px 4px 0;font-size:12.5px;color:var(--muted)}
 .hint svg{width:13px;height:13px;vertical-align:-2px;color:var(--cyan)}
-footer{margin:22px 0 4px;text-align:center;font-family:var(--font-mono);font-size:11px;letter-spacing:1.2px;color:var(--muted)}
+footer{margin:12px 0 2px;text-align:center;font-family:var(--font-mono);font-size:11px;letter-spacing:1.2px;color:var(--muted)}
 footer span{color:var(--orange)}
 .cn{display:inline-block;margin-left:4px;padding:1px 6px;border-radius:6px;background:var(--red);color:#fff;font-family:var(--font-display);font-weight:700;font-size:.78em;letter-spacing:.5px;vertical-align:1px;text-transform:none}
 .txt i{font-style:normal;font-size:12px;color:var(--orange-soft);line-height:1.25}
@@ -78,13 +87,17 @@ body.offline .off{display:block}
 </head>
 <body>
 <header>
-  <img src="apple-touch-icon.png" alt="">
-  <div><h1>Gold Petal</h1><div class="sub">Atelier · Club House <span class="cn">CN</span></div></div>
+  <span class="lg"><img class="logo" src="atelier-logo.png" alt="Gold Petal Atelier · Club House CN"><span class="cn">CN</span></span>
+  <span class="pill" role="status"><i></i><span id="pillText">Idle</span></span>
 </header>
-
-<div class="home"><span class="b">✦</span><b>Club House <span class="cn">CN</span></b><small>China · phone</small></div>
 <div class="off">You're offline. Club House CN is ready, but the AI sites need internet.</div>
 
+<nav class="qnav" aria-label="Club House">
+  <a href="club.html#s-codex"><span>💬</span>Codex</a><a href="club.html#s-tasks"><span>✅</span>Tasks</a>
+  <a href="club.html#s-memory"><span>🧠</span>Memory</a><a href="club.html#s-jobs"><span>📋</span>Jobs</a>
+  <a href="club.html#clubCard"><span>🤖</span>Floor</a><a href="club.html#s-team"><span>👥</span>Team</a>
+  <a href="club.html#s-business"><span>🏷️</span>Business</a><a href="club.html#s-floor"><span>🕹️</span>Robot</a>
+</nav>
 <p class="label"><span>AI Windows</span><span id="count"></span></p>
 <ul class="grid" id="grid"></ul>
 
@@ -120,7 +133,7 @@ grid.innerHTML=TABS.map(t=>{
     ${t.meter?`<a class="meter" href="${esc(t.meter)}" target="_blank" rel="noopener" aria-label="${esc(t.name)} usage and billing">${GAUGE}</a>`:''}</li>`;
 }).join('');
 document.getElementById('count').textContent=TABS.length+' shops';
-function net(){document.body.classList.toggle('offline',!navigator.onLine);}
+function net(){document.body.classList.toggle('offline',!navigator.onLine);const p=document.getElementById('pillText');if(p)p.textContent=navigator.onLine?'Idle':'Offline';}
 addEventListener('online',net);addEventListener('offline',net);net();
 if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
 </script>

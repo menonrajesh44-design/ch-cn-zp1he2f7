@@ -1,9 +1,9 @@
 // Club House CN (phone, China) service worker: keeps the app shell available offline.
 // Only caches this folder's own files. AI sites always open live in the browser.
-const CACHE = 'clubhouse-cn-v1';
+const CACHE = 'clubhouse-cn-v2';
 const NET_TIMEOUT_MS = 3000; // if the network stalls (e.g. China firewall), open from cache after 3 s
 const SHELL = [
-  './', './index.html', './manifest.json', './robots.txt',
+  './', './index.html', './club.html', './atelier-logo.png', './manifest.json', './robots.txt',
   './apple-touch-icon.png', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './favicon.png',
   './fonts/ChakraPetch-600-normal.woff2', './fonts/ChakraPetch-700-normal.woff2',
   './fonts/IBMPlexMono-400-normal.woff2', './fonts/IBMPlexMono-500-normal.woff2',
